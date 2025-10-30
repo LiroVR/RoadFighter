@@ -6,4 +6,4 @@
 
 ## What was implemented
 
-A functional (very rough) build of the game Road Fighter. The player can move side to side, and there is procedural, randomized
+A functional (very rough) build of the game Road Fighter. The player can move side to side, and there is procedural, randomized NPC car spawning, a score, and win/lose conditions
