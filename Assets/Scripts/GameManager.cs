@@ -32,4 +32,9 @@ public class GameManager : MonoBehaviour
             timeIsUp = true;
         }
     }
+
+    private void GameOver()
+    {
+        
+    }
 }

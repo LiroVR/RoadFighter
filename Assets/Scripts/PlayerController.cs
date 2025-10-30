@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    RigidBody2D rb;
-    public Vector2 sideForce = (0, 0);
+    Rigidbody2D rb;
+    public Vector2 sideForce = new Vector2(10f, 0f);
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<RigidBody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame

@@ -5,7 +5,7 @@ using UnityEngine;
 public class NPCSpawner : MonoBehaviour
 {
     [SerializeField] private float spawnMinX, spawnMaxX;
-    [SerializeField] private float spawnRate = 2f, nextSpawn = 0f;
+    [SerializeField] private float spawnRate = 2f, nextSpawn = 0f, spawnRateMin = 0.5f, spawnRateMax = 2f;
     [SerializeField] private GameObject npcPrefab;
     public float despawnY = -10f, speed = 5f;
     // Start is called before the first frame update
@@ -19,6 +19,7 @@ public class NPCSpawner : MonoBehaviour
     {
         while (Time.time >= nextSpawn)
         {
+            spawnRate = Random.Range(spawnRateMin, spawnRateMax);
             nextSpawn = Time.time + spawnRate;
             spawnNPC();
         }
