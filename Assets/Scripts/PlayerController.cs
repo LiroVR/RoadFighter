@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 sideForce = new Vector2(10f, 0f);
     bool crashed = false;
     [SerializeField] NPCSpawner spawner;
+    GameManager manager;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour
             crashed = true;
 
             spawner.TriggerSpawner();
+            manager.instance.GameOver();
         }
     }
 }
