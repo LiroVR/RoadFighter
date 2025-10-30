@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
         {
             crashed = true;
 
-            spawner.StopSpawning();
+            spawner.TriggerSpawner();
         }
     }
 }

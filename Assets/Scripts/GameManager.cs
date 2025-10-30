@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,7 +10,9 @@ public class GameManager : MonoBehaviour
     public float timer = 0f;
     public float endTime = 60f;
     public bool timeIsUp = false;
-
+    public int score = 0;
+    private bool gameOver = false;
+    [SerializeField] private TMPro.TextMeshProUGUI scoreText;
     void Awake()
     {
         if (instance != null)
@@ -31,10 +34,15 @@ public class GameManager : MonoBehaviour
         {
             timeIsUp = true;
         }
+        else if (gameOver == false)
+        {
+            score = (int)(timer * 10);
+            scoreText.text = "Score: \n" + score.ToString();
+        }
     }
 
-    private void GameOver()
+    public void GameOver()
     {
-        
+        gameOver = true;
     }
 }
