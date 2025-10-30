@@ -8,6 +8,7 @@ public class NPCSpawner : MonoBehaviour
     [SerializeField] private float spawnRate = 2f, nextSpawn = 0f, spawnRateMin = 0.5f, spawnRateMax = 2f;
     [SerializeField] private GameObject npcPrefab;
     public float despawnY = -10f, speed = 5f;
+    bool stopSpawning = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,11 @@ public class NPCSpawner : MonoBehaviour
         {
             spawnRate = Random.Range(spawnRateMin, spawnRateMax);
             nextSpawn = Time.time + spawnRate;
-            spawnNPC();
+
+            if (stopSpawning == false)
+            {
+                spawnNPC();
+            }
         }
     }
 
@@ -30,5 +35,10 @@ public class NPCSpawner : MonoBehaviour
         float spawnX = Random.Range(spawnMinX, spawnMaxX);
         Vector3 spawnPosition = new Vector3(spawnX, transform.position.y, transform.position.z);
         Instantiate(npcPrefab, spawnPosition, Quaternion.identity);
+    }
+
+    public void TriggerSpawner()
+    {
+        stopSpawning = true;
     }
 }

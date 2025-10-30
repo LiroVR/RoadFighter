@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     public Vector2 sideForce = new Vector2(10f, 0f);
     bool crashed = false;
+    [SerializeField] NPCSpawner spawner;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +36,8 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             crashed = true;
+
+            spawner.StopSpawning();
         }
     }
 }
