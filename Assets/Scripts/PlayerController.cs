@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb;
     public Vector2 sideForce = new Vector2(10f, 0f);
+    bool crashed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -16,13 +17,24 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        if (crashed == false)
         {
-            rb.AddForce(-sideForce, ForceMode2D.Force);
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+            {
+                rb.AddForce(-sideForce, ForceMode2D.Force);
+            }
+            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            {
+                rb.AddForce(sideForce, ForceMode2D.Force);
+            }
         }
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            rb.AddForce(sideForce, ForceMode2D.Force);
+            crashed = true;
         }
     }
 }
