@@ -1233,7 +1233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sideForce: {x: 10, y: 0}
-  spawner: {fileID: 0}
+  spawner: {fileID: 1569298549}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

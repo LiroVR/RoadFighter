@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        manager = GameManager.instance;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -39,7 +40,7 @@ public class PlayerController : MonoBehaviour
             crashed = true;
 
             spawner.TriggerSpawner();
-            manager.instance.GameOver();
+            manager.GameOver();
         }
     }
 }
