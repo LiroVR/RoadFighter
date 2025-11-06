@@ -7,7 +7,9 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     public Vector2 sideForce = new Vector2(10f, 0f);
     bool crashed = false;
+    bool bumped = false;
     [SerializeField] NPCSpawner spawner;
+    [SerializeField] int healthNum = 100;
     GameManager manager;
 
     // Start is called before the first frame update
@@ -31,6 +33,20 @@ public class PlayerController : MonoBehaviour
                 rb.AddForce(sideForce, ForceMode2D.Force);
             }
 
+            if (bumped)
+            {
+                healthNum -= enemyDamage;
+                manager.HealthChange(healthNum);
+                bumped = false;
+
+                if (healthNum <= 0)
+                {
+                    crashed = true;
+
+                    spawner.TriggerSpawner();
+                    manager.GameOver();
+                }
+            }
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -42,10 +58,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            crashed = true;
-
-            spawner.TriggerSpawner();
-            manager.GameOver();
+            bumped = true;
         }
     }
 }
