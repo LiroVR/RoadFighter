@@ -554,7 +554,7 @@ MonoBehaviour:
   score: 0
   scoreText: {fileID: 112728858}
   healthText: {fileID: 790607709}
-  fuelText: {fileID: 0}
+  fuelText: {fileID: 367348938}
 --- !u!4 &254688768
 Transform:
   m_ObjectHideFlags: 0
@@ -1129,6 +1129,7 @@ MonoBehaviour:
   spawnRateMax: 2
   npcPrefab: {fileID: 1710678848922284061, guid: 21c47397d26176e42968903cefc306b9, type: 3}
   maxNPCs: 5
+  fuelCarSpawnPercent: 10
   despawnY: -10
   speed: 5
   enemyDamage: 50
@@ -1160,7 +1161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   linePrefab: {fileID: 7199104630370445205, guid: f9e790baab68c1349b503573175cc246, type: 3}
-  spawnRate: 1
+  spawnRate: 0.25
   nextSpawn: 0
   npcSpawner: {fileID: 1569298549}
   maxLines: 10
@@ -1527,6 +1528,8 @@ MonoBehaviour:
   sideForce: {x: 10, y: 0}
   spawner: {fileID: 1569298549}
   healthNum: 100
+  fuelNum: 100
+  fuelUpdateTime: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

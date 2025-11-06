@@ -11,7 +11,7 @@ public class LineSpawner : MonoBehaviour
     private int currentLines = 0;
     private GameObject spawnedLine;
 
-    private float lineSpeed = 5f;
+    private float lineSpeed = 5f, lastSpawnTime = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +35,7 @@ public class LineSpawner : MonoBehaviour
 
     private void spawnLine()
     {
+        lastSpawnTime = Time.time;
         Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         spawnedLine = Instantiate(linePrefab, spawnPosition, Quaternion.identity);
         spawnedLine.GetComponent<RoadLine>().speed = lineSpeed;
@@ -43,8 +44,12 @@ public class LineSpawner : MonoBehaviour
 
     public void ResetLine(GameObject line)
     {
-        Vector3 resetPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        line.transform.position = resetPosition;
+        if (Time.time - lastSpawnTime >= spawnRate)
+        {
+            lastSpawnTime = Time.time;
+            Vector3 resetPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            line.transform.position = resetPosition;
+        }
     }
     
 }

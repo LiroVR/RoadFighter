@@ -9,7 +9,8 @@ public class NPCCar : MonoBehaviour
     private float despawnY = -10f;
 
     public float speed = 5f;
-    public int damage = 50;
+    public int damage = 50, fuelAmount = 0;
+    public bool fuelCar = false;
     // Start is called before the first frame update
     void Start()
     {
