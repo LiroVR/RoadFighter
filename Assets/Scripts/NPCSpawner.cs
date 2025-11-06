@@ -8,7 +8,9 @@ public class NPCSpawner : MonoBehaviour
     [SerializeField] private float spawnRate = 2f, nextSpawn = 0f, spawnRateMin = 0.5f, spawnRateMax = 2f;
     [SerializeField] private GameObject npcPrefab;
     [SerializeField] private int maxNPCs = 10, fuelCarSpawnPercent = 5;
-    private int currentNPCs = 0, fuelCarRandom = 0, fuelAmount = 25;
+    private int fuelCarRandom = 0, fuelAmount = 25;
+
+    public int currentNPCs = 0;
     public float despawnY = -10f, speed = 5f;
     private GameObject spawnedNPC;
     public int enemyDamage = 50;

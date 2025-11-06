@@ -94,6 +94,7 @@ public class PlayerController : MonoBehaviour
 
                 manager.FuelChange(fuelNum);
                 Destroy(collision.gameObject);
+                spawner.currentNPCs--;
             }
             else
             {
