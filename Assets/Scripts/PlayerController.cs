@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 sideForce = new Vector2(10f, 0f);
     bool crashed = false;
     bool bumped = false;
+    bool outOfGas = false;
     [SerializeField] NPCSpawner spawner;
     [SerializeField] int healthNum = 100;
     [SerializeField] int fuelNum = 100;
@@ -28,7 +29,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (crashed == false)
+        if (crashed == false && outOfGas == false)
         {
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
@@ -61,6 +62,13 @@ public class PlayerController : MonoBehaviour
                 fuelNum--;
                 manager.FuelChange(fuelNum);
                 timer = 0;
+
+                if (fuelNum <= 0)
+                {
+                    outOfGas = true;
+                    spawner.TriggerSpawner();
+                    manager.GameOver();
+                }
             }
         }
         if (Input.GetKeyDown(KeyCode.Escape))
