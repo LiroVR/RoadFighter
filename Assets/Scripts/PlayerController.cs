@@ -95,8 +95,10 @@ public class PlayerController : MonoBehaviour
                 manager.FuelChange(fuelNum);
                 Destroy(collision.gameObject);
             }
-
-            bumped = true;
+            else
+            {
+                bumped = true;
+            }
         }
     }
 }
