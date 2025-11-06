@@ -6,4 +6,5 @@
 
 ## What was implemented
 
-A functional (very rough) build of the game Road Fighter. The player can move side to side, and there is procedural, randomized NPC car spawning, a score, and win/lose conditions
+For dirty flag, we added a boolean so that the player's health is only updated when it changes.
+For object pooling, we used it to control how many cars were being spawned. So when a car goes below the game screen its used again instead of spawning a new car.
