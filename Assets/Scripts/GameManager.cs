@@ -13,7 +13,9 @@ public class GameManager : MonoBehaviour
     public int score = 0;
     private bool gameOver = false;
     [SerializeField] private TMPro.TextMeshProUGUI scoreText;
-    [SerializeField] public TMPro.TextMeshProUGUI healthText;
+    [SerializeField] private TMPro.TextMeshProUGUI healthText;
+    [SerializeField] private TMPro.TextMeshProUGUI fuelText;
+
     void Awake()
     {
         if (instance != null)
@@ -45,6 +47,11 @@ public class GameManager : MonoBehaviour
     public void HealthChange(int health)
     {
         healthText.text = "Health: \n" + health.ToString();
+    }
+
+    public void FuelChange(int fuel)
+    {
+        fuelText.text = "Fuel: \n" + fuel.ToString();
     }
 
     public void GameOver()
