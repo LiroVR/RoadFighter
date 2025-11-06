@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] NPCSpawner spawner;
     [SerializeField] int healthNum = 100;
     [SerializeField] int fuelNum = 100;
+    [SerializeField] float fuelUpdateTime = 1000f;
     float timer = 0f;
     private int enemyDamage;
     GameManager manager;
@@ -55,7 +56,12 @@ public class PlayerController : MonoBehaviour
 
             timer += Time.deltaTime;
 
-            fuelNum = (int)(timer * 10);
+            if (timer >= fuelUpdateTime)
+            {
+                fuelNum--;
+                manager.FuelChange(fuelNum);
+                timer = 0;
+            }
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -67,6 +73,20 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            if (collision.gameObject.GetComponent<NPCCar>().fuelCar)
+            {
+                if (fuelNum + collision.gameObject.GetComponent<NPCCar>().fuelAmount > 100)
+                {
+                    fuelNum = 100;
+                }
+                else
+                {
+                    fuelNum += collision.gameObject.GetComponent<NPCCar>().fuelAmount;
+                }
+
+                manager.FuelChange(fuelNum);
+            }
+
             bumped = true;
         }
     }
