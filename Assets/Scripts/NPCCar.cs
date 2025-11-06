@@ -6,7 +6,10 @@ public class NPCCar : MonoBehaviour
 {
 
     [SerializeField] private NPCSpawner npcSpawner;
-    private float despawnY = -10f, speed = 5f;
+    private float despawnY = -10f;
+
+    public float speed = 5f;
+    public int damage = 50;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +26,7 @@ public class NPCCar : MonoBehaviour
     {
         if (transform.position.y < despawnY)
         {
-            Destroy(gameObject);
+            npcSpawner.RespawnNPC(gameObject);
         }
         else
         {

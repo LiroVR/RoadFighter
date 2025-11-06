@@ -7,7 +7,11 @@ public class NPCSpawner : MonoBehaviour
     [SerializeField] private float spawnMinX, spawnMaxX;
     [SerializeField] private float spawnRate = 2f, nextSpawn = 0f, spawnRateMin = 0.5f, spawnRateMax = 2f;
     [SerializeField] private GameObject npcPrefab;
+    [SerializeField] private int maxNPCs = 10;
+    private int currentNPCs = 0;
     public float despawnY = -10f, speed = 5f;
+    private GameObject spawnedNPC;
+    public int enemyDamage = 50;
     bool stopSpawning = false;
     // Start is called before the first frame update
     void Start()
@@ -20,6 +24,10 @@ public class NPCSpawner : MonoBehaviour
     {
         while (Time.time >= nextSpawn)
         {
+            if (currentNPCs >= maxNPCs)
+            {
+                break;
+            }
             spawnRate = Random.Range(spawnRateMin, spawnRateMax);
             nextSpawn = Time.time + spawnRate;
 
@@ -34,7 +42,16 @@ public class NPCSpawner : MonoBehaviour
     {
         float spawnX = Random.Range(spawnMinX, spawnMaxX);
         Vector3 spawnPosition = new Vector3(spawnX, transform.position.y, transform.position.z);
-        Instantiate(npcPrefab, spawnPosition, Quaternion.identity);
+        spawnedNPC = Instantiate(npcPrefab, spawnPosition, Quaternion.identity);
+        spawnedNPC.GetComponent<NPCCar>().damage = enemyDamage;
+        currentNPCs++;
+    }
+
+    public void RespawnNPC(GameObject npc)
+    {
+        float spawnX = Random.Range(spawnMinX, spawnMaxX);
+        Vector3 spawnPosition = new Vector3(spawnX, transform.position.y, transform.position.z);
+        npc.transform.position = spawnPosition;
     }
 
     public void TriggerSpawner()
