@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     bool bumped = false;
     [SerializeField] NPCSpawner spawner;
     [SerializeField] int healthNum = 100;
+    [SerializeField] int fuelNum = 100;
+    float timer = 0f;
     GameManager manager;
 
     // Start is called before the first frame update
@@ -17,6 +19,7 @@ public class PlayerController : MonoBehaviour
     {
         manager = GameManager.instance;
         rb = GetComponent<Rigidbody2D>();
+        manager.HealthChange(healthNum);
     }
 
     // Update is called once per frame
@@ -47,6 +50,10 @@ public class PlayerController : MonoBehaviour
                     manager.GameOver();
                 }
             }
+
+            timer += Time.deltaTime;
+
+            fuelNum = (int)(timer * 10);
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
