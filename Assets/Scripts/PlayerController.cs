@@ -10,8 +10,12 @@ public class PlayerController : MonoBehaviour
     bool bumped = false;
     [SerializeField] NPCSpawner spawner;
     [SerializeField] int healthNum = 100;
+<<<<<<< Updated upstream
     [SerializeField] int fuelNum = 100;
     float timer = 0f;
+=======
+    private int enemyDamage;
+>>>>>>> Stashed changes
     GameManager manager;
     private int enemyDamage;
 
@@ -21,7 +25,10 @@ public class PlayerController : MonoBehaviour
         manager = GameManager.instance;
         rb = GetComponent<Rigidbody2D>();
         enemyDamage = spawner.enemyDamage;
+<<<<<<< Updated upstream
         manager.HealthChange(healthNum);
+=======
+>>>>>>> Stashed changes
     }
 
     // Update is called once per frame
