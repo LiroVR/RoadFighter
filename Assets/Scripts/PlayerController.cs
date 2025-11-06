@@ -13,12 +13,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int fuelNum = 100;
     float timer = 0f;
     GameManager manager;
+    private int enemyDamage;
 
     // Start is called before the first frame update
     void Start()
     {
         manager = GameManager.instance;
         rb = GetComponent<Rigidbody2D>();
+        enemyDamage = spawner.enemyDamage;
         manager.HealthChange(healthNum);
     }
 
