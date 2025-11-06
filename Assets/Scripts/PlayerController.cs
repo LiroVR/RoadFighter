@@ -30,10 +30,11 @@ public class PlayerController : MonoBehaviour
             {
                 rb.AddForce(sideForce, ForceMode2D.Force);
             }
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                Application.Quit();
-            }
+
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
         }
     }
 
