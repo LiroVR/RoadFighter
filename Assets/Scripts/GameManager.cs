@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public int score = 0;
     private bool gameOver = false;
     [SerializeField] private TMPro.TextMeshProUGUI scoreText;
+    [SerializeField] public TMPro.TextMeshProUGUI healthText;
     void Awake()
     {
         if (instance != null)
@@ -39,6 +40,11 @@ public class GameManager : MonoBehaviour
             score = (int)(timer * 10);
             scoreText.text = "Score: \n" + score.ToString();
         }
+    }
+
+    public void HealthChange(int health)
+    {
+        healthText.text = "Health: \n" + health.ToString();
     }
 
     public void GameOver()
