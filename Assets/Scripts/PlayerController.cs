@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
     public Vector2 sideForce = new Vector2(10f, 0f);
     bool crashed = false;
     bool bumped = false;

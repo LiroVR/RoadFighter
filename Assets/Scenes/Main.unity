@@ -781,6 +781,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 367348936}
   m_CullTransparentMesh: 1
+--- !u!1 &574251521
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 574251523}
+  - component: {fileID: 574251522}
+  m_Layer: 0
+  m_Name: Snowo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &574251522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574251521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c714463860b694aa947fc75bb6c563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnMinX: -2
+  spawnMaxX: 2
+  spawnRate: 10
+  nextSpawn: 0
+  spawnRateMin: 0.5
+  spawnRateMax: 2
+  npcPrefab: {fileID: 3984173375869077867, guid: 53aead9fab34c1a4b949efeed77a2411, type: 3}
+  maxNPCs: 2
+  fuelCarSpawnPercent: 0
+  currentNPCs: 0
+  despawnY: -10
+  speed: 10
+  enemyDamage: 0
+--- !u!4 &574251523
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574251521}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.3750967, y: -5.254118, z: -0.169887}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &790607707
 GameObject:
   m_ObjectHideFlags: 0
@@ -1130,6 +1187,7 @@ MonoBehaviour:
   npcPrefab: {fileID: 1710678848922284061, guid: 21c47397d26176e42968903cefc306b9, type: 3}
   maxNPCs: 5
   fuelCarSpawnPercent: 10
+  currentNPCs: 0
   despawnY: -10
   speed: 5
   enemyDamage: 50
@@ -1542,3 +1600,4 @@ SceneRoots:
   - {fileID: 191049227}
   - {fileID: 2139400099}
   - {fileID: 9832020}
+  - {fileID: 574251523}
