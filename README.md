@@ -4,6 +4,8 @@
 
 ### Lucas O'Leary 100790165
 
+### Kenechukwu Ozoemene 100841149
+
 ## What was implemented
 
 For dirty flag, we added a boolean so that the player's health is only updated when it changes.
